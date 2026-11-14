@@ -39,10 +39,9 @@ class RestaurantController {
         }
     }
 
-    /**
-     * Step 1: Arrivals.
-     * Runs at the start of the turn so the newly arrived customer is visible in the queue.
-     */
+    // Step 1: Arrivals.
+    // Runs at the start of the turn so the newly arrived customer is visible in the queue.
+    
     public Customer startTurnAndProcessArrivals() {
         waiter.resetTurn();
         chef.resetTurn();
@@ -55,7 +54,7 @@ class RestaurantController {
         return null;
     }
 
-    // --- Waiter Actions (Step 2 & Step 3 part 1: Waiter acts before Chef) ---
+    // --- Waiter Actions ---
 
     public ActionResult waiterSeatCustomer(int customerId, int tableNumber) {
         if (!waiter.isAvailable()) {
@@ -153,7 +152,7 @@ class RestaurantController {
         return ActionResult.ok("Waiter waits this turn.");
     }
 
-    // --- Chef Actions (Step 2 & Step 3 part 2: Chef acts after Waiter) ---
+    // --- Chef Actions ---
 
     public ActionResult chefPrepareOrder(int orderId) {
         if (!chef.isAvailable()) {
@@ -191,12 +190,12 @@ class RestaurantController {
         return ActionResult.ok("Chef waits this turn.");
     }
 
-    // --- Step 4: Eating and Payment ---
+    // --- Eating and Payment ---
 
     public List<String> processEatingAndPayment() {
         List<String> events = new ArrayList<>();
 
-        // 1. Cashier automatically handles at most one READY_TO_PAY customer who became ready on an earlier turn.
+        // Cashier automatically handles at most one READY_TO_PAY customer who became ready on an earlier turn.
         Table payableTable = cashier.findOldestPayableTable(tables, currentTurn);
         if (payableTable != null) {
             Customer customer = payableTable.getOccupant();
@@ -215,7 +214,7 @@ class RestaurantController {
                     + customer.getSatisfaction() + " recorded.");
         }
 
-        // 2. Any customer served on an earlier turn finishes one full turn of eating and becomes READY_TO_PAY.
+        // customers served on an earlier turn finishes one full turn to eat then becomes READY_TO_PAY.
         for (Table table : tables) {
             if (!table.isFree()) {
                 Customer c = table.getOccupant();
@@ -230,7 +229,7 @@ class RestaurantController {
         return events;
     }
 
-    // --- Step 5: Waiting and Abandonment ---
+    // --- Waiting and Abandonment ---
 
     public List<String> processWaitingAndAbandonment() {
         List<String> events = new ArrayList<>();
@@ -276,7 +275,7 @@ class RestaurantController {
         currentTurn++;
     }
 
-    // --- Queries & Objective Evaluation (Step 6) ---
+    // --- Queries & Objective Evaluation ---
 
     public boolean isVictory() {
         return getPaidCustomersCount() >= TARGET_PAID_CUSTOMERS
