@@ -16,9 +16,8 @@ class VIPCustomer extends Customer {
         return "VIP";
     }
 
-    /**
-     * VIPs get 10% off the menu price (rounded half-up to the nearest cent).
-     */
+
+    // VIPs get 10% off the menu price (rounded half-up to the nearest cent).
     @Override
     public int calculateBillCents(int basePriceCents) {
         return (basePriceCents * (100 - DISCOUNT_PERCENT) + 50) / 100;
