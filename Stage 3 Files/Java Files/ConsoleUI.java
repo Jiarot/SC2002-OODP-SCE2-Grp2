@@ -6,7 +6,7 @@ class ConsoleUI {
     // ANSI Reset
     private static final String RESET = "\u001B[0m";
 
-    // Regular & Bold Foreground Colors (Unused RED and BLUE removed)
+    // Regular & Bold Foreground Colors
     private static final String BOLD = "\u001B[1m";
     private static final String GREEN = "\u001B[32m";
     private static final String YELLOW = "\u001B[33m";
@@ -183,7 +183,7 @@ class ConsoleUI {
             }
         }
 
-        // Staff Tasks Available
+        // Staff Tasks
         System.out.println(BOLD + "\nStaff Tasks Available This Turn (Limited Capacity):" + RESET);
         System.out.println("  " + BOLD_PURPLE + "* Host (Seat at most 1 queued customer; acts before the Waiter):" + RESET);
         for (String task : buildHostTasksSummary()) {
