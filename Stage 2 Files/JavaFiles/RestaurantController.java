@@ -14,10 +14,10 @@ class RestaurantController {
     public static final int TARGET_PAID_CUSTOMERS = 4;
     public static final int TARGET_REVENUE_CENTS = 4500; // $45.00
     public static final double TARGET_AVG_SATISFACTION = 60.0;
-    /**
-     * Arrival turn -> how to create the customer arriving that turn (id, arrivalTurn).
-     * Stage 2 schedule: Critic, Regular, VIP, Regular, VIP, Regular (one Critic only).
-     */
+    
+    // Arrival turn: how to create the customer arriving that turn (id, arrivalTurn).
+    // Planned Stage 2 schedule: Critic, Regular, VIP, Regular, VIP, Regular (one Critic only).
+     
     private static final Map<Integer, BiFunction<Integer, Integer, Customer>> ARRIVAL_SCHEDULE = new TreeMap<>();
 
     static {
@@ -52,11 +52,10 @@ class RestaurantController {
             tables.add(new Table(i));
         }
     }
-
-    /**
-     * Step 1: Arrivals.
-     * Runs at the start of the turn so the newly arrived customer is visible in the queue.
-     */
+    
+    // Step 1: Arrivals.
+    // Runs at the start of the turn so a newly arrived customer is visible in the queue.
+     
     public Customer startTurnAndProcessArrivals() {
         waiter.resetTurn();
         chef.resetTurn();
@@ -181,7 +180,7 @@ class RestaurantController {
         return ActionResult.ok("Waiter waits this turn.");
     }
 
-    // --- Chef Actions (Step 2 & Step 3 part 2: Chef acts after Waiter) ---
+    // --- Chef Actions ---
 
     public ActionResult chefPrepareOrder(int orderId) {
         if (!chef.isAvailable()) {
@@ -219,7 +218,7 @@ class RestaurantController {
         return ActionResult.ok("Chef waits this turn.");
     }
 
-    // --- Step 4: Eating and Payment ---
+    // --- Eating and Payment ---
 
     public List<String> processEatingAndPayment() {
         List<String> events = new ArrayList<>();
@@ -258,7 +257,7 @@ class RestaurantController {
         return events;
     }
 
-    // --- Step 5: Waiting and Abandonment ---
+    // --- Waiting and Abandonment ---
 
     public List<String> processWaitingAndAbandonment() {
         List<String> events = new ArrayList<>();
@@ -304,7 +303,7 @@ class RestaurantController {
         currentTurn++;
     }
 
-    // --- Queries & Objective Evaluation (Step 6) ---
+    // --- Queries & Objective Evaluation ---
 
     public boolean isVictory() {
         return getPaidCustomersCount() >= TARGET_PAID_CUSTOMERS
@@ -404,4 +403,4 @@ class RestaurantController {
     public String getFoodRuleDescription() {
         return foodChooser.getRuleDescription();
     }
-}
+}
