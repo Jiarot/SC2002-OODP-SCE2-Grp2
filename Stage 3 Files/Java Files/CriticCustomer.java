@@ -7,9 +7,8 @@ class CriticCustomer extends Customer {
     private static final double LIKE_CHANCE = 0.50;
     private static final double OKAY_CHANCE = 0.25;
 
-    // Deliberately UNSEEDED: the Critic's verdict differs on every run and every game.
-    // It is independent of the game's seed-42 generator (CustomerFoodChooser), so menu choices
-    // and all other customer types stay reproducible.
+    // the Critic's verdict differs on every run and every game.
+    // Independent of the game seed so menu choice and all other customer types stay reproducible.
     private final Random reactionRandom = new Random();
 
     public CriticCustomer(int id, int arrivalTurn) {
