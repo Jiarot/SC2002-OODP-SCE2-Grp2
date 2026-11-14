@@ -3,10 +3,6 @@
 Stage 2 adds **VIPCustomer** and **CriticCustomer** alongside regular customers.
 Win/lose criteria, turn sequence and base setting are unchanged from Stage 1.
 
-- Repository: `<TODO: repository URL>`
-- Git tag: `stage-2`
-- Compare link (stage-1 -> stage-2): `<TODO: https://github.com/<org>/<repo>/compare/stage-1...stage-2>`
-
 ## Build and run
 
 ```
