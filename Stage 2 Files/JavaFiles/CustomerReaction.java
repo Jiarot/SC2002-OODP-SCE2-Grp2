@@ -3,7 +3,7 @@
  * everyone else returns NONE.
  */
 enum CustomerReaction {
-    NONE(""),
+    NONE(""),                                        // for the non-critics
     DELIGHTED("Compliments to the Chef!"),
     FURIOUS("I want to speak to the Chef!"),
     UNIMPRESSED("The food is just okay...");
