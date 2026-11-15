@@ -26,25 +26,25 @@ All timestamps use `MM:SS`, measured from the start of the video. They mark the 
 
 ## Main sections
 
-| Time range | Section | Content |
-|---|---|---|
-| 00:00 - 02:49 | Game overview and the three stages | Base game, turn sequence, customer types, Stage 3 features and the overall design approach. |
-| 02:49 - 08:23 | Gameplay demonstration and outcomes | Staff task limits, combo preparation, serving, Critic behaviour, payment, Happy Hour, victory and defeat. |
-| 08:23 - 10:48 | Class diagrams and stage changes | How the class design develops from Stage 1 to Stage 3 through inheritance, polymorphism, interfaces and composition. |
-| 10:48 - 12:53 | Stage 3 sequence diagram | The Critic's order lifecycle, including arrival, seating, ordering, preparation, serving and payment. |
-| 12:53 - 14:41 | Individual contributions and learning | Each member explains their contribution and key learning. Spoken content ends at approximately 14:33. |
+| Time range | Presenter | Section | Content |
+|---|---|---|---|
+| 00:00 - 02:49 | Ernest | Game overview and the three stages | Base game, turn sequence, customer types, Stage 3 features and the overall design approach. |
+| 02:49 - 08:23 | Triton, Jackson and Calvin | Gameplay demonstration and outcomes | Staff task limits, combo preparation, serving, Critic behaviour, payment, Happy Hour, victory and defeat. |
+| 08:23 - 10:48 | Calvin | Class diagrams and stage changes | How the class design develops from Stage 1 to Stage 3 through inheritance, polymorphism, interfaces and composition. |
+| 10:48 - 12:53 | Sze Waye | Stage 3 sequence diagram | The Critic's order lifecycle, including arrival, seating, ordering, preparation, serving and payment. |
+| 12:53 - 14:41 | Ernest, Triton, Jackson, Calvin and Sze Waye | Individual contributions and learning | Each member explains their contribution and key learning. Spoken content ends at approximately 14:33. |
 
 ## Detailed timestamps
 
 ### Game overview
 
-| Start | Topic |
-|---|---|
-| 00:00 | Introduction to Group 2's Restaurant Rush project. |
-| 00:16 | Stage 1: baseline game, staff roles, customer arrivals and victory conditions. |
-| 00:43 | The five steps in each turn: arrivals, Waiter action, Chef action, payment and waiting penalties. |
-| 01:04 | Stage 2: VIP and Critic behaviour, customer subclasses and polymorphism. |
-| 01:55 | Stage 3: Host, combo meals, Happy Hour and the supporting abstractions. |
+| Start | Presenter | Topic |
+|---|---|---|
+| 00:00 | Ernest | Introduction to Group 2's Restaurant Rush project. |
+| 00:16 | Ernest | Stage 1: baseline game, staff roles, customer arrivals and victory conditions. |
+| 00:43 | Ernest | The five steps in each turn: arrivals, Waiter action, Chef action, payment and waiting penalties. |
+| 01:04 | Ernest | Stage 2: VIP and Critic behaviour, customer subclasses and polymorphism. |
+| 01:55 | Ernest | Stage 3: Host, combo meals, Happy Hour and the supporting abstractions. |
 
 ### Gameplay demonstration
 
@@ -58,29 +58,29 @@ All timestamps use `MM:SS`, measured from the start of the video. They mark the 
 
 ### Class diagrams and design evolution
 
-| Start | Topic |
-|---|---|
-| 08:23 | Stage 1: core classes, controller coordination and separation of responsibilities. |
-| 08:53 | Stage 2: extending `Customer` with VIP and Critic subclasses; overriding billing and food-reaction methods. |
-| 09:30 | Stage 3: `StaffMember`, the `Dish` interface, `ComboMeal` and `HappyHour`. |
-| 10:23 | Comparing the stages: code reuse, extensibility and changes that preserve the order lifecycle. |
+| Start | Presenter | Topic |
+|---|---|---|
+| 08:23 | Calvin | Stage 1: core classes, controller coordination and separation of responsibilities. |
+| 08:53 | Calvin | Stage 2: extending `Customer` with VIP and Critic subclasses; overriding billing and food-reaction methods. |
+| 09:30 | Calvin | Stage 3: `StaffMember`, the `Dish` interface, `ComboMeal` and `HappyHour`. |
+| 10:23 | Calvin | Comparing the stages: code reuse, extensibility and changes that preserve the order lifecycle. |
 
 ### Sequence diagram: Stage 3 Critic order lifecycle
 
-| Start | Topic |
-|---|---|
-| 10:48 | Use case and starting conditions: Critic #1, reproducible menu choices using `--cycle`, and the optional Happy Hour event. |
-| 11:07 | `ConsoleUI` and `RestaurantController` interactions, staff reset and customer arrival. |
-| 11:27 | Host seating and Waiter ordering within the same turn. |
-| 11:37 | Food selection, combo eligibility and bill locking. |
-| 11:58 | Chef preparation and why an order cannot be served in the turn it becomes ready. |
-| 12:09 | Serving and dynamic dispatch to `CriticCustomer.reactToServedFood()`. |
-| 12:31 | Eating, readiness to pay and the Cashier's payment timing rule. |
-| 12:43 | Payment completes the use case: revenue and satisfaction are recorded, and the table is freed. |
+| Start | Presenter | Topic |
+|---|---|---|
+| 10:48 | Sze Waye | Use case and starting conditions: Critic #1, reproducible menu choices using `--cycle`, and the optional Happy Hour event. |
+| 11:07 | Sze Waye | `ConsoleUI` and `RestaurantController` interactions, staff reset and customer arrival. |
+| 11:27 | Sze Waye | Host seating and Waiter ordering within the same turn. |
+| 11:37 | Sze Waye | Food selection, combo eligibility and bill locking. |
+| 11:58 | Sze Waye | Chef preparation and why an order cannot be served in the turn it becomes ready. |
+| 12:09 | Sze Waye | Serving and dynamic dispatch to `CriticCustomer.reactToServedFood()`. |
+| 12:31 | Sze Waye | Eating, readiness to pay and the Cashier's payment timing rule. |
+| 12:43 | Sze Waye | Payment completes the use case: revenue and satisfaction are recorded, and the table is freed. |
 
 ## Individual contributions and key learning
 
-| Time range | Member | Contribution and learning discussed |
+| Time range | Presenter | Contribution and learning discussed |
 |---|---|---|
 | 12:53 - 13:13 | Ernest | Stage design, comparing implementation approaches, checking that each stage runs independently and documenting design evolution. |
 | 13:13 - 13:30 | Triton | Gameplay mechanics, staff constraints, defeat scenarios, resource management and systematic testing. |
